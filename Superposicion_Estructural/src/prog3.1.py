@@ -195,6 +195,22 @@ def calcula_superposicion_SVD(pdbh1,pdbh2,originalPDBname,fittedPDBname,test=Fal
 	
     return sqrt(rmsd)
 					
+def percent_identity(align1: str, align2: str, gap_char: str = '-') -> float:
+    """Devuelve % identidad entre dos alineamientos (excluye posiciones con gaps)."""
+    if len(align1) != len(align2):
+        raise ValueError("Los alineamientos deben tener la misma longitud.")
+    matches = 0
+    compared = 0
+    for a, b in zip(align1, align2):
+        if a == gap_char or b == gap_char:
+            continue
+        compared += 1
+        if a == b:
+            matches += 1
+    return (matches / compared) * 100 if compared > 0 else 0.0
+
+# Uso:
+# identidad = percent_identity(pdb1['align'], pdb2['align'])
 
 # 2) programa principal ###################################################
 
@@ -213,3 +229,5 @@ rmsd = calcula_superposicion_SVD(pdb2,pdb1,'original.pdb','align_fit.pdb')
 print("\n# coordenadas originales = original.pdb\n# superposicion optima:\n") 
 print("# archivo PDB = align_fit.pdb\n# RMSD = %1.2f Angstrom\n" % (rmsd))
 
+print("# identidad entre alineamientos = %1.2f%%\n" % \
+    percent_identity(pdb1['align'], pdb2['align']))
