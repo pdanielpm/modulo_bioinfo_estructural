@@ -1,3 +1,6 @@
+
+# Modelado de la proteina capside VP2
+
 Para este ejercicio se eligió la proteína Capsid protein VP2 del parvovirus canino tipo 2, recuperada en UniProt(P61826 · CAPSD_PAVC) . Con una secuencia de 584 aa:
 
 ```
