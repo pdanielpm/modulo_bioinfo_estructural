@@ -35,6 +35,7 @@ En las cinco replicas podemos observar coherencia entre ellas, lo que puede indi
 Se logro identificar la secuencia en UniProt a la proteína correcta.
 
 ![alt text](image-2.png)
+![alt text](image-6.png)
 
 El QMEAN se muestra bastante bajo, debido a la presencia de regiones intrínsecamente desordenadas, que podemos comprobar con el grafico de Sequence Features. El extremo **N-terminal (residuos 1-40)** está marcado explícitamente como **"Disordered"**.
 
